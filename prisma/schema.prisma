@@ -9,6 +9,14 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlserver"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String  @id @default(uuid())
+  username     String
+  password     String
+  phone_number Int
+  email        String? @unique
 }
