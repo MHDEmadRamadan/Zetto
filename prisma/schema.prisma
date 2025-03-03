@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -17,6 +17,6 @@ model User {
   id           String  @id @default(uuid())
   username     String
   password     String
-  phone_number Int
+  phone_number Int     @unique
   email        String? @unique
 }
